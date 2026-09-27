@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>College Attendance</title>
+
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="app">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="eyebrow">
+                    COLLEGE
+                </div>
+
+                <h1>
+                    Attendance
+                </h1>
+
+            </div>
+
+
+            <div class="app-icon">
+                A
+            </div>
+
+        </header>
+
+
+        <!-- OVERALL ATTENDANCE -->
+
+        <section class="hero-card">
+
+            <div class="hero-top">
+
+                <div>
+
+                    <span class="small-label">
+                        OVERALL ATTENDANCE
+                    </span>
+
+                    <div
+                        id="overallPercentage"
+                        class="hero-percentage"
+                    >
+                        0%
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-ring">
+
+                    <span id="ringPercentage">
+                        0%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div>
+
+                    <span>Total</span>
+
+                    <strong id="overallTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Present</span>
+
+                    <strong id="overallPresent">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Absent</span>
+
+                    <strong id="overallAbsent">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DATE -->
+
+        <section class="date-section">
+
+            <div class="section-heading">
+                DATE
+            </div>
+
+
+            <input
+                type="date"
+                id="datePicker"
+            >
+
+
+            <div class="selected-day">
+
+                <span
+                    id="selectedDay"
+                    class="selected-day-name"
+                >
+                    Monday
+                </span>
+
+
+                <span
+                    id="dayStatus"
+                    class="status normal"
+                >
+                    College Day
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- WEEK -->
+
+        <section>
+
+            <div class="section-heading">
+                WEEK
+            </div>
+
+
+            <div class="day-selector">
+
+                <button onclick="goToDay('Monday')">
+                    MON
+                </button>
+
+                <button onclick="goToDay('Tuesday')">
+                    TUE
+                </button>
+
+                <button onclick="goToDay('Wednesday')">
+                    WED
+                </button>
+
+                <button onclick="goToDay('Thursday')">
+                    THU
+                </button>
+
+                <button onclick="goToDay('Friday')">
+                    FRI
+                </button>
+
+                <button onclick="goToDay('Saturday')">
+                    SAT
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DAY ATTENDANCE -->
+
+        <section class="attendance-card">
+
+            <div class="attendance-header">
+
+                <div>
+
+                    <span class="small-label">
+                        TODAY
+                    </span>
+
+                    <h2 id="attendanceTitle">
+                        Monday Attendance
+                    </h2>
+
+                </div>
+
+
+                <div class="day-percentage">
+
+                    <span id="dayPercentage">
+                        0%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DAY STATS -->
+
+            <div class="mini-stats">
+
+                <div>
+
+                    <span>
+                        Lectures
+                    </span>
+
+                    <strong id="dayTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Present
+                    </span>
+
+                    <strong id="dayPresent">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOLIDAY MESSAGE -->
+
+            <div
+                id="holidayMessage"
+                class="holiday-message hidden"
+            >
+
+                <div class="holiday-icon">
+                    ✦
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Holiday
+                    </strong>
+
+                    <p>
+                        Attendance won't be affected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LECTURES -->
+
+            <div id="lectures"></div>
+
+
+            <!-- HOLIDAY BUTTON -->
+
+            <button
+                id="holidayButton"
+                class="holiday-button"
+                onclick="toggleHoliday()"
+            >
+                Mark as Holiday
+            </button>
+
+        </section>
+
+
+        <!-- TARGET -->
+
+        <section class="target-card">
+
+            <div class="target-header">
+
+                <div>
+
+                    <span class="small-label">
+                        ATTENDANCE TARGET
+                    </span>
+
+                    <h2>
+                        Stay on track
+                    </h2>
+
+                </div>
+
+
+                <div class="target-input">
+
+                    <input
+                        type="number"
+                        id="targetInput"
+                        min="1"
+                        max="100"
+                        value="75"
+                    >
+
+                    <span>%</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="target-progress">
+
+                <div
+                    id="targetProgress"
+                    class="target-progress-bar"
+                ></div>
+
+            </div>
+
+
+            <p
+                id="targetMessage"
+                class="target-message"
+            >
+                Your attendance target is 75%.
+            </p>
+
+        </section>
+
+
+        <!-- DATA -->
+
+        <section class="settings-card">
+
+            <div>
+
+                <span class="small-label">
+                    DATA
+                </span>
+
+                <h2>
+                    Attendance Data
+                </h2>
+
+                <p>
+                    Your data is saved on this device.
+                </p>
+
+            </div>
+
+
+            <button
+                class="reset-button"
+                onclick="resetAllData()"
+            >
+                Reset
+            </button>
+
+        </section>
+
+
+        <footer>
+            Attendance Tracker
+        </footer>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

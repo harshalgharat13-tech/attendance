@@ -1,0 +1,1019 @@
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg: #050505;
+
+    --card: #101010;
+
+    --card-light: #151515;
+
+    --border: #242424;
+
+    --text: #f5f5f5;
+
+    --muted: #858585;
+
+    --accent: #7dd3fc;
+
+    --accent-dark: #38bdf8;
+
+    --green: #4ade80;
+
+    --red: #f87171;
+
+    --radius: 20px;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #151515 0%,
+            #080808 35%,
+            #050505 70%
+        );
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+.app {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    margin: auto;
+
+    padding:
+        28px
+        18px
+        40px;
+}
+
+
+/* HEADER */
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.eyebrow,
+.small-label,
+.section-heading {
+
+    font-size: 11px;
+
+    letter-spacing: 1.6px;
+
+    color: var(--muted);
+
+    font-weight: 700;
+}
+
+
+.topbar h1 {
+
+    margin: 5px 0 0;
+
+    font-size: 32px;
+
+    letter-spacing: -1px;
+}
+
+
+.app-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #202020,
+            #0d0d0d
+        );
+
+    border: 1px solid var(--border);
+
+    color: var(--accent);
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+/* HERO */
+
+.hero-card {
+
+    position: relative;
+
+    padding: 24px;
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #0c0c0c
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+
+    margin-bottom: 28px;
+
+    overflow: hidden;
+}
+
+
+.hero-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    right: -90px;
+
+    top: -100px;
+
+    background: var(--accent);
+
+    opacity: 0.06;
+
+    filter: blur(50px);
+
+    border-radius: 50%;
+}
+
+
+.hero-top {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.hero-percentage {
+
+    margin-top: 8px;
+
+    font-size: 56px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    color: white;
+}
+
+
+.attendance-ring {
+
+    width: 78px;
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        var(--accent);
+
+    box-shadow:
+        0 0 25px
+        rgba(125, 211, 252, 0.12);
+}
+
+
+.attendance-ring span {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: var(--accent);
+}
+
+
+.hero-stats {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        var(--border);
+}
+
+
+.hero-stats div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.hero-stats span,
+.mini-stats span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.hero-stats strong {
+
+    font-size: 20px;
+}
+
+
+/* DATE */
+
+.date-section {
+
+    margin-bottom: 25px;
+}
+
+
+.section-heading {
+
+    margin-bottom: 10px;
+}
+
+
+#datePicker {
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background: var(--card);
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+#datePicker:focus {
+
+    border-color: var(--accent);
+}
+
+
+.selected-day {
+
+    margin-top: 12px;
+}
+
+
+.selected-day-name {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-right: 10px;
+}
+
+
+.status {
+
+    display: inline-block;
+
+    padding:
+        5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.status.normal {
+
+    background:
+        rgba(74, 222, 128, 0.1);
+
+    color: var(--green);
+}
+
+
+.status.holiday {
+
+    background:
+        rgba(251, 191, 36, 0.1);
+
+    color: #fbbf24;
+}
+
+
+/* WEEK */
+
+.day-selector {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 6px;
+
+    margin-bottom: 28px;
+}
+
+
+.day-selector button {
+
+    border:
+        1px solid
+        var(--border);
+
+    background: var(--card);
+
+    color: var(--muted);
+
+    padding: 12px 5px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+
+.day-selector button:hover {
+
+    border-color: #3b3b3b;
+
+    color: white;
+
+    background: var(--card-light);
+}
+
+
+.day-selector button:active {
+
+    transform: scale(0.96);
+}
+
+
+/* ATTENDANCE */
+
+.attendance-card {
+
+    padding: 20px;
+
+    border-radius: var(--radius);
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    margin-bottom: 18px;
+}
+
+
+.attendance-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.attendance-header h2 {
+
+    margin: 7px 0 0;
+
+    font-size: 22px;
+}
+
+
+.day-percentage {
+
+    color: var(--accent);
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+/* MINI STATS */
+
+.mini-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+
+.mini-stats div {
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #151515;
+
+    border:
+        1px solid
+        var(--border);
+}
+
+
+.mini-stats strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 18px;
+}
+
+
+/* LECTURES */
+
+.lecture {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 15px 2px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+.lecture:last-child {
+
+    border-bottom: none;
+}
+
+
+.lecture-name {
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.lecture-buttons {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+
+.lecture-buttons button {
+
+    min-width: 90px;
+
+    padding: 9px 11px;
+
+    border-radius: 9px;
+
+    border: 1px solid;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+
+.present-button {
+
+    background:
+        rgba(74, 222, 128, 0.08);
+
+    border-color:
+        rgba(74, 222, 128, 0.25);
+
+    color: var(--green);
+}
+
+
+.present-button:hover,
+.selected-present {
+
+    background:
+        rgba(74, 222, 128, 0.18);
+
+    border-color:
+        rgba(74, 222, 128, 0.5);
+}
+
+
+.absent-button {
+
+    background:
+        rgba(248, 113, 113, 0.08);
+
+    border-color:
+        rgba(248, 113, 113, 0.25);
+
+    color: var(--red);
+}
+
+
+.absent-button:hover,
+.selected-absent {
+
+    background:
+        rgba(248, 113, 113, 0.18);
+
+    border-color:
+        rgba(248, 113, 113, 0.5);
+}
+
+
+/* HOLIDAY */
+
+.holiday-message {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(251, 191, 36, 0.07);
+
+    border:
+        1px solid
+        rgba(251, 191, 36, 0.18);
+}
+
+
+.holiday-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(251, 191, 36, 0.12);
+
+    color: #fbbf24;
+}
+
+
+.holiday-message strong {
+
+    color: #fbbf24;
+}
+
+
+.holiday-message p {
+
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.hidden {
+
+    display: none;
+}
+
+
+.holiday-button {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+
+    background: #181818;
+
+    color: #aaa;
+
+    border:
+        1px solid
+        var(--border);
+
+    cursor: pointer;
+}
+
+
+.holiday-button:hover {
+
+    background: #202020;
+
+    color: white;
+}
+
+
+/* TARGET */
+
+.target-card,
+.settings-card {
+
+    padding: 20px;
+
+    border-radius: var(--radius);
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    margin-bottom: 18px;
+}
+
+
+.target-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.target-header h2,
+.settings-card h2 {
+
+    margin: 7px 0 0;
+
+    font-size: 20px;
+}
+
+
+.target-input {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--accent);
+
+    font-weight: 700;
+}
+
+
+.target-input input {
+
+    width: 58px;
+
+    padding: 9px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background: #080808;
+
+    color: white;
+
+    text-align: center;
+
+    font-weight: 700;
+
+    font-size: 15px;
+}
+
+
+.target-progress {
+
+    width: 100%;
+
+    height: 7px;
+
+    margin-top: 20px;
+
+    border-radius: 20px;
+
+    background: #222;
+
+    overflow: hidden;
+}
+
+
+.target-progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent-dark),
+            var(--accent)
+        );
+
+    transition: width 0.3s;
+}
+
+
+.target-message {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 0;
+}
+
+
+/* DATA */
+
+.settings-card {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.settings-card p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 0;
+}
+
+
+.reset-button {
+
+    padding: 10px 16px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid
+        rgba(248, 113, 113, 0.2);
+
+    background:
+        rgba(248, 113, 113, 0.08);
+
+    color: var(--red);
+
+    cursor: pointer;
+}
+
+
+.reset-button:hover {
+
+    background:
+        rgba(248, 113, 113, 0.16);
+}
+
+
+/* FOOTER */
+
+footer {
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 11px;
+
+    padding: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .app {
+
+        padding:
+            20px
+            13px
+            30px;
+    }
+
+
+    .topbar h1 {
+
+        font-size: 28px;
+    }
+
+
+    .hero-card {
+
+        padding: 20px;
+    }
+
+
+    .hero-percentage {
+
+        font-size: 48px;
+    }
+
+
+    .attendance-ring {
+
+        width: 68px;
+
+        height: 68px;
+    }
+
+
+    .day-selector {
+
+        gap: 5px;
+    }
+
+
+    .day-selector button {
+
+        padding: 11px 2px;
+
+        font-size: 10px;
+    }
+
+
+    .attendance-card {
+
+        padding: 16px;
+    }
+
+
+    .lecture {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .lecture-buttons {
+
+        width: 100%;
+    }
+
+
+    .lecture-buttons button {
+
+        flex: 1;
+    }
+
+
+    .settings-card {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .reset-button {
+
+        width: 100%;
+    }
+
+}
